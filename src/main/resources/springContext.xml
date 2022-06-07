@@ -8,7 +8,7 @@
 
 
 
-    <bean id="person" class="marker.service.Person">
+    <bean id="person" class="marker.test.Person">
         <property name="test" value="Sleepwalking"/>
     </bean>
 
