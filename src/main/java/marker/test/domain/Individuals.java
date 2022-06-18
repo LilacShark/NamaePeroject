@@ -2,11 +2,12 @@ package marker.test.domain;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.Date;
 
 @Table(name = "Individuals")
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE) // стиль представления в бд наследованых таблиц
+@NamedQuery(name = "Individuals.findByBD",
+        query = "SELECT i FROM Individuals i WHERE i.dateOfBirth = :dateOfBirth")
 public class Individuals {
 
     @Id

@@ -19,10 +19,19 @@ public class CorpManager {
 
     public void findIndividuals() {
 
-        addIndividual();
+//        addIndividual();
 
         List<Individuals> individualsList = corpDAO.findAll();
-        individualsList.forEach(individuals -> System.out.println(individuals.toString()));
+
+//        List<Individuals> names = corpDAO.findAllByFirstName("Тест");
+//        List<Individuals> names = corpDAO.findAllByFirstNameContaining("Тест");
+        List<Individuals> names = corpDAO.findByBD(LocalDate.of(1994, 01, 01));
+
+
+
+//        individualsList.forEach(individuals -> System.out.println(individuals.toString()));
+
+        names.forEach(name -> System.out.println(name));
 
     }
 
