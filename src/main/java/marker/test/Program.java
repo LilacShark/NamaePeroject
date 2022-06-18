@@ -1,5 +1,7 @@
 package marker.test;
 
+import marker.test.domain.Individuals;
+import marker.test.rest.CorpController;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -10,8 +12,9 @@ public class Program {
         ApplicationContext applicationContext =
                 new ClassPathXmlApplicationContext("springContext.xml");
 
-        Person person = (Person) applicationContext.getBean("person");
-        System.out.println(person.getTest());
+        CorpController controller = applicationContext.getBean("controller", CorpController.class);
+        controller.findIndiv();
+
 
     }
 }
