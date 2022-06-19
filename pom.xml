@@ -7,17 +7,19 @@
     <groupId>marker.test</groupId>
     <artifactId>NamaePeroject</artifactId>
     <version>1</version>
+    <packaging>war</packaging>
 
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
         <spring.version>5.1.9.RELEASE</spring.version>
-        <jaxb.version>2.3.1</jaxb.version>
-        <jersey.version>2.28</jersey.version>
-        <jaxb.version>2.3.1</jaxb.version>
-        <slf4j.version>1.7.28</slf4j.version>
-        <spring.version>5.1.9.RELEASE</spring.version>
         <spring-data.version>2.2.1.RELEASE</spring-data.version>
+
+        <slf4j.version>1.7.28</slf4j.version>
+
+        <jaxb.version>2.3.1</jaxb.version>
+        <jersey.version>2.29.1</jersey.version>
+
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -64,6 +66,41 @@
             <artifactId>spring-data-jpa</artifactId>
             <version>${spring-data.version}</version>
         </dependency>
+        <!-- Spring contextListener-->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+
+<!--        Зависимости для сервлета-->
+        <dependency>
+            <groupId>org.glassfish.jersey.containers</groupId>
+            <artifactId>jersey-container-servlet</artifactId>
+            <version>${jersey.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.jersey.inject</groupId>
+            <artifactId>jersey-hk2</artifactId>
+            <version>${jersey.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.jersey.media</groupId>
+            <artifactId>jersey-media-json-jackson</artifactId>
+            <version>${jersey.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.xml.bind</groupId>
+            <artifactId>jaxb-api</artifactId>
+            <version>${jaxb.version}</version>
+        </dependency>
+<!--        зависимость для интегарции спринг и джерси-->
+        <dependency>
+            <groupId>org.glassfish.jersey.ext</groupId>
+            <artifactId>jersey-spring5</artifactId>
+            <version>${jersey.version}</version>
+        </dependency>
+
 
     </dependencies>
 

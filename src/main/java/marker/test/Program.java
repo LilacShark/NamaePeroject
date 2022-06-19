@@ -9,11 +9,11 @@ public class Program {
 
     public static void main(String[] args) {
 
-        ApplicationContext applicationContext =
-                new ClassPathXmlApplicationContext("springContext.xml");
-
-        CorpController controller = applicationContext.getBean("controller", CorpController.class);
-        controller.findIndiv();
+//        ApplicationContext applicationContext =
+//                new ClassPathXmlApplicationContext("springContext.xml");
+//
+//        CorpController controller = applicationContext.getBean("controller", CorpController.class);
+//        controller.findIndiv();
 
 
     }
