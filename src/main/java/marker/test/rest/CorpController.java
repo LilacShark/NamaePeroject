@@ -13,21 +13,27 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+
 @Service("controller")
-@Path("/1c")
+@Path("/mc")
 public class CorpController {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(CorpController.class);
 
     @Autowired
-    @Qualifier("corpManager")
+    @Qualifier("corpService")
     private CorpManager corpManager;
 
     @GET
-    @Path("/2c")
     @Produces(MediaType.APPLICATION_JSON)
     public Response findIndiv() {
-        LOGGER.info("findIndiv called");
+
+        if (corpManager.equals(null)) {
+            System.out.println("============ corpManager.equals(null)");
+            LOGGER.info("============ corpManager.equals(null)");
+        }
+
+        LOGGER.info("========== findIndiv called");
 
         return corpManager.findIndividuals();
     }

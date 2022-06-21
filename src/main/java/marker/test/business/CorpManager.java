@@ -12,9 +12,8 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
-import java.util.List;
 
-@Service("corpManager")
+@Service("corpService")
 @Scope(ConfigurableBeanFactory.SCOPE_SINGLETON)
 public class CorpManager {
 
@@ -25,7 +24,8 @@ public class CorpManager {
 
     public Response findIndividuals() {
 
-        LOGGER.info("CorpManager.findIndividuals called");
+
+        LOGGER.info("============= CorpManager.findIndividuals called");
 
 //        addIndividual();
 

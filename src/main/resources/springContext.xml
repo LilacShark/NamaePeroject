@@ -13,11 +13,11 @@
         http://www.springframework.org/schema/data/jpa/spring-jpa.xsd"
 >
 
-    <context:component-scan base-package="marker.test.rest"/>
+    <context:component-scan base-package="marker.test"/>
 
     <tx:annotation-driven transaction-manager="txManager"/>
 
-    <jpa:repositories base-package="marker.test.business"
+    <jpa:repositories base-package="marker.test"
                       entity-manager-factory-ref="emf"
                       transaction-manager-ref="txManager"/>
 
@@ -32,7 +32,7 @@
         <property name="dataSource" ref="dataSource"/>
         <property name="packagesToScan">
             <list>
-                <value>marker.test.business</value>
+                <value>marker.test.domain</value>
             </list>
         </property>
         <property name="jpaVendorAdapter">
@@ -50,7 +50,9 @@
         <property name="entityManagerFactory" ref="emf"/>
     </bean>
 
-
+    <bean id="testEx" class="marker.test.Test">
+        <property name="testField" value="Shadow Moses"/>
+    </bean>
 
 
 </beans>
