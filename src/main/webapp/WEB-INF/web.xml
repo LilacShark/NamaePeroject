@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.0"
-         xmlns="http://java.sun.com/xml/javaee"
+         xmlns="http://java.sun.com/xml/ns/javaee"
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
          http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
 
-    <display-name>City Register</display-name>
+    <display-name>Corp</display-name>
 
-    <listner>
-        <listner-class>
-            org.springframework.web.context.ContextCleanupListener
-        </listner-class>
-    </listner>
-
+    <listener>
+        <listener-class>
+            org.springframework.web.context.ContextLoaderListener
+        </listener-class>
+    </listener>
     <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>/WEB-INF/classes/springContext.xml</param-value>
@@ -30,7 +29,7 @@
         </init-param>
         <init-param>
             <param-name>jersey.config.server.provider.classname</param-name>
-            <param-value>org.glassfish.jersey.jackson.jacksonFeature</param-value>
+            <param-value>org.glassfish.jersey.jackson.JacksonFeature</param-value>
         </init-param>
     </servlet>
 
@@ -40,3 +39,8 @@
     </servlet-mapping>
 
 </web-app>
+
+        <!--        <param-value>/WEB-INF/classes/springContext.xml</param-value>-->
+        <!--        <param-value>E:/Dev/Tools/apache-tomcat-9.0.34/webapps/NamaePeroject-1/WEB-INF/classes/springContext.xml</param-value>-->
+
+<!--<param-value>classpath:classes/springContext.xml</param-value>-->
