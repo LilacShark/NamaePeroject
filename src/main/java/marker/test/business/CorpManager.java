@@ -2,7 +2,6 @@ package marker.test.business;
 
 import marker.test.dao.CorpDAO;
 import marker.test.domain.Individuals;
-import marker.test.rest.CorpController;
 import marker.test.view.Response;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,7 +22,6 @@ public class CorpManager {
     private CorpDAO corpDAO;
 
     public Response findIndividuals() {
-
 
         LOGGER.info("============= CorpManager.findIndividuals called");
 
@@ -51,8 +49,8 @@ public class CorpManager {
 
 //        individuals.setId(1L);
         individuals.setFirstName("Тест");
-        individuals.setSecondName("Тестов");
-        individuals.setPatronymicName("тестович");
+        individuals.setLastName("Тестов");
+        individuals.setMiddleName("тестович");
         individuals.setDateOfBirth(LocalDate.of(1994,01,01));
         individuals.setSex("M");
 
@@ -62,5 +60,9 @@ public class CorpManager {
 
     }
 
+    public void simpleCall() {
+        LOGGER.info("Called.. ");
+
+    }
 
 }

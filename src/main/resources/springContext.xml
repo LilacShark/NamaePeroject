@@ -42,16 +42,14 @@
             <props>
                 <prop key="hibernate.dialect">org.hibernate.dialect.PostgreSQL10Dialect</prop>
                 <prop key="hibernate.show_sql">true</prop>
+<!--   для автоматической генерации таблиц   create drop update          -->
+                <prop key="hibernate.hbm2ddl.auto">create</prop>
             </props>
         </property>
     </bean>
 
     <bean id="txManager" class="org.springframework.orm.jpa.JpaTransactionManager">
         <property name="entityManagerFactory" ref="emf"/>
-    </bean>
-
-    <bean id="testEx" class="marker.test.Test">
-        <property name="testField" value="Shadow Moses"/>
     </bean>
 
 

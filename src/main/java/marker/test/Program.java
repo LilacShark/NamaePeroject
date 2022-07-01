@@ -9,15 +9,8 @@ public class Program {
 
     public static void main(String[] args) {
 
-        ApplicationContext applicationContext =
-                new ClassPathXmlApplicationContext(new String[]{"springContext.xml"});
-
 //        ApplicationContext applicationContext =
-//                new ClassPathXmlApplicationContext("springContext.xml");
-//
-//        CorpController controller = applicationContext.getBean("controller", CorpController.class);
-//        controller.findIndiv();
-
+//                new ClassPathXmlApplicationContext(new String[]{"springContext.xml"});
 
     }
 }

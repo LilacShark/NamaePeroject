@@ -2,8 +2,9 @@ package marker.test.domain;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
-@Table(name = "Individuals")
+@Table(name = "individuals")
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE) // стиль представления в бд наследованых таблиц
 @NamedQuery(name = "Individuals.findByBD",
@@ -12,18 +13,20 @@ public class Individuals {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private Long id;
+    @Column(name = "individualId")
+    private Long individualId;
     @Column(name = "firstName")
     private String firstName;
-    @Column(name = "secondName")
-    private String secondName;
-    @Column(name = "patronymicName")
-    private String patronymicName;
+    @Column(name = "lastName")
+    private String lastName;
+    @Column(name = "middleName")
+    private String middleName;
     @Column(name = "dateOfBirth")
     private LocalDate dateOfBirth;
     @Column(name = "sex")
     private String sex;
+    @OneToMany(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY, mappedBy = "individual")
+    private List<Passport> passports;
 
 
     public String getFirstName() {
@@ -34,20 +37,20 @@ public class Individuals {
         this.firstName = firstName;
     }
 
-    public String getSecondName() {
-        return secondName;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setSecondName(String secondName) {
-        this.secondName = secondName;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
-    public String getPatronymicName() {
-        return patronymicName;
+    public String getMiddleName() {
+        return middleName;
     }
 
-    public void setPatronymicName(String patronymicName) {
-        this.patronymicName = patronymicName;
+    public void setMiddleName(String middleName) {
+        this.middleName = middleName;
     }
 
     public LocalDate getDateOfBirth() {
@@ -58,12 +61,12 @@ public class Individuals {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public Long getId() {
-        return id;
+    public Long getIndividualId() {
+        return individualId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setIndividualId(Long individualId) {
+        this.individualId = individualId;
     }
 
     public String getSex() {
@@ -77,10 +80,10 @@ public class Individuals {
     @Override
     public String toString() {
         return "Individuals{" +
-                "id=" + id +
+                "id=" + individualId +
                 ", firstName='" + firstName + '\'' +
-                ", secondName='" + secondName + '\'' +
-                ", patronymicName='" + patronymicName + '\'' +
+                ", secondName='" + lastName + '\'' +
+                ", patronymicName='" + middleName + '\'' +
                 ", dateOfBirth=" + dateOfBirth +
                 ", sex='" + sex + '\'' +
                 '}';
