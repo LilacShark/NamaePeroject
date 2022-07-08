@@ -1,6 +1,6 @@
 package marker.test.rest;
 
-import marker.test.business.CorpManager;
+import marker.test.service.CorpService;
 import marker.test.view.Response;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,19 +22,19 @@ public class CorpController {
 
     @Autowired
     @Qualifier("corpService")
-    private CorpManager corpManager;
+    private CorpService corpService;
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response findIndiv() {
 
-        if (corpManager.equals(null)) {
+        if (corpService.equals(null)) {
             System.out.println("============ corpManager.equals(null)");
             LOGGER.info("============ corpManager.equals(null)");
         }
 
         LOGGER.info("========== findIndiv called");
 
-        return corpManager.findIndividuals();
+        return corpService.findIndividuals();
     }
 }

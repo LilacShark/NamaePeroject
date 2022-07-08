@@ -1,4 +1,4 @@
-package marker.test.business;
+package marker.test.service;
 
 import marker.test.dao.CorpDAO;
 import marker.test.domain.Individuals;
@@ -14,9 +14,9 @@ import java.time.LocalDate;
 
 @Service("corpService")
 @Scope(ConfigurableBeanFactory.SCOPE_SINGLETON)
-public class CorpManager {
+public class CorpService {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(CorpManager.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(CorpService.class);
 
     @Autowired
     private CorpDAO corpDAO;
