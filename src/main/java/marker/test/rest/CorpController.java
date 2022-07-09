@@ -1,7 +1,7 @@
 package marker.test.rest;
 
 import marker.test.service.CorpService;
-import marker.test.view.Response;
+import marker.test.view.IndividualResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +26,7 @@ public class CorpController {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Response findIndiv() {
+    public IndividualResponse findIndiv() {
 
         if (corpService.equals(null)) {
             System.out.println("============ corpManager.equals(null)");

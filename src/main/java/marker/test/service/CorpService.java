@@ -2,7 +2,7 @@ package marker.test.service;
 
 import marker.test.dao.CorpDAO;
 import marker.test.domain.Individuals;
-import marker.test.view.Response;
+import marker.test.view.IndividualResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +21,15 @@ public class CorpService {
     @Autowired
     private CorpDAO corpDAO;
 
-    public Response findIndividuals() {
+
+    ////////////////////////////////////////////////
+
+    public void simpleCall() {
+        LOGGER.info("Called.. ");
+
+    }
+
+    public IndividualResponse findIndividuals() {
 
         LOGGER.info("============= CorpManager.findIndividuals called");
 
@@ -39,7 +47,7 @@ public class CorpService {
 
 //        names.forEach(name -> System.out.println(name));
 
-        return new Response();
+        return new IndividualResponse();
 
     }
 
@@ -59,10 +67,4 @@ public class CorpService {
         return null;
 
     }
-
-    public void simpleCall() {
-        LOGGER.info("Called.. ");
-
-    }
-
 }
