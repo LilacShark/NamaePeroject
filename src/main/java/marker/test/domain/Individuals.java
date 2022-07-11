@@ -77,6 +77,14 @@ public class Individuals {
         this.sex = sex;
     }
 
+    public List<Passport> getPassports() {
+        return passports;
+    }
+
+    public void setPassports(List<Passport> passports) {
+        this.passports = passports;
+    }
+
     @Override
     public String toString() {
         return "Individuals{" +

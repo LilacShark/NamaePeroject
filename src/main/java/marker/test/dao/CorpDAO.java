@@ -23,7 +23,7 @@ public interface CorpDAO extends JpaRepository<Individuals, Long> {
     @Query("SELECT i FROM Individuals i WHERE i.id > :id")
     List<Individuals> findByBD(@Param("id") Long id);
 
-    @Query("SELECT i FROM Individual i WHERE i.lastName = :lastName AND" +
+    @Query("SELECT i FROM Individuals i WHERE i.lastName = :lastName AND " +
             "i.firstName = :firstName AND " +
             "i.middleName = :middleName AND " +
             "i.dateOfBirth = :dateOfBirth")

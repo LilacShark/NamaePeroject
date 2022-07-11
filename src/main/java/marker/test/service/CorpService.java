@@ -2,6 +2,8 @@ package marker.test.service;
 
 import marker.test.dao.CorpDAO;
 import marker.test.domain.Individuals;
+import marker.test.domain.Passport;
+import marker.test.view.IndividualRequest;
 import marker.test.view.IndividualResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,6 +13,9 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 @Service("corpService")
 @Scope(ConfigurableBeanFactory.SCOPE_SINGLETON)
@@ -21,6 +26,36 @@ public class CorpService {
     @Autowired
     private CorpDAO corpDAO;
 
+    public List<IndividualResponse> getIndividualsInfo(IndividualRequest request){
+
+        List<IndividualResponse> responses = new ArrayList<>();
+
+        List<Individuals> individuals = corpDAO.findIndividuals(request.getLastName(),
+                request.getFirstName(),
+                request.getMiddleName(),
+                request.getDateOfBirth());
+
+        if (individuals.isEmpty()) {
+            return  Collections.EMPTY_LIST;
+        }
+
+        for (Individuals i: individuals) {
+            IndividualResponse ir = new IndividualResponse();
+            ir.setLastName(i.getLastName());
+            ir.setFirstName(i.getFirstName());
+            ir.setMiddleName(i.getMiddleName());
+            ir.setDateOfBirth(i.getDateOfBirth());
+            ir.setpSerial(null);
+            ir.setpNumber(null);
+            ir.setDateOfIssue(null);
+
+            responses.add(ir);
+
+        }
+
+        return responses;
+
+    }
 
     ////////////////////////////////////////////////
 
