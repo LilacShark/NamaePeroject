@@ -23,10 +23,8 @@ public class Individuals {
     private String middleName;
     @Column(name = "dateOfBirth")
     private LocalDate dateOfBirth;
-    @Column(name = "sex")
-    private String sex;
     @OneToMany(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY, mappedBy = "individual")
-    private List<Passport> passports;
+    private List<Passports> passports;
 
 
     public String getFirstName() {
@@ -69,19 +67,11 @@ public class Individuals {
         this.individualId = individualId;
     }
 
-    public String getSex() {
-        return sex;
-    }
-
-    public void setSex(String sex) {
-        this.sex = sex;
-    }
-
-    public List<Passport> getPassports() {
+    public List<Passports> getPassports() {
         return passports;
     }
 
-    public void setPassports(List<Passport> passports) {
+    public void setPassports(List<Passports> passports) {
         this.passports = passports;
     }
 
@@ -92,8 +82,7 @@ public class Individuals {
                 ", firstName='" + firstName + '\'' +
                 ", secondName='" + lastName + '\'' +
                 ", patronymicName='" + middleName + '\'' +
-                ", dateOfBirth=" + dateOfBirth +
-                ", sex='" + sex + '\'' +
+                ", dateOfBirth=" + dateOfBirth + '\'' +
                 '}';
     }
 }

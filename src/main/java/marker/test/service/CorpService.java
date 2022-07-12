@@ -2,7 +2,6 @@ package marker.test.service;
 
 import marker.test.dao.CorpDAO;
 import marker.test.domain.Individuals;
-import marker.test.domain.Passport;
 import marker.test.view.IndividualRequest;
 import marker.test.view.IndividualResponse;
 import org.slf4j.Logger;
@@ -95,7 +94,6 @@ public class CorpService {
         individuals.setLastName("Тестов");
         individuals.setMiddleName("тестович");
         individuals.setDateOfBirth(LocalDate.of(1994,01,01));
-        individuals.setSex("M");
 
         corpDAO.saveAndFlush(individuals);
 

@@ -3,11 +3,11 @@ package marker.test.domain;
 import javax.persistence.*;
 import java.time.LocalDate;
 
-@Table(name = "passport")
+@Table(name = "passports")
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 
-public class Passport {
+public class Passports {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
