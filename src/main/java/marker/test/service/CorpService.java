@@ -29,12 +29,18 @@ public class CorpService {
 
         List<IndividualResponse> responses = new ArrayList<>();
 
-        List<Individuals> individuals = corpDAO.findIndividuals(request.getLastName(),
+//        List<Individuals> individuals = corpDAO.findIndividuals(request.getLastName(),
+//                request.getFirstName(),
+//                request.getMiddleName(),
+//                request.getDateOfBirth());
+
+        List<Individuals> individuals = corpDAO.findIndividualsWithPassports(request.getLastName(),
                 request.getFirstName(),
                 request.getMiddleName(),
                 request.getDateOfBirth());
 
         if (individuals.isEmpty()) {
+            LOGGER.info("EMPTY_LIST.. ");
             return  Collections.EMPTY_LIST;
         }
 
@@ -44,9 +50,14 @@ public class CorpService {
             ir.setFirstName(i.getFirstName());
             ir.setMiddleName(i.getMiddleName());
             ir.setDateOfBirth(i.getDateOfBirth());
-            ir.setpSerial(null);
-            ir.setpNumber(null);
-            ir.setDateOfIssue(null);
+            // Сделать определение действительного паспорта
+            ir.setpSerial(i.getPassports().get(0).getpSerial());
+            ir.setpNumber(i.getPassports().get(0).getpNumber());
+            ir.setDateOfIssue(i.getPassports().get(0).getDateOfIssue());
+
+//            LOGGER.info(" ======== PASSPORT ======= " + i.getPassports().get(0).getpSerial() + ' '
+//                    + i.getPassports().get(0).getpNumber() + ' '
+//                    + i.getPassports().get(0).getDateOfIssue());
 
             responses.add(ir);
 
