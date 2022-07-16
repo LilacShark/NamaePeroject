@@ -18,6 +18,18 @@ public class IndividualResponse implements Serializable {
     @XmlJavaTypeAdapter(LocalDateAdapter.class)
     private LocalDate dateOfIssue;
 
+    @Override
+    public String toString() {
+        return "IndividualResponse{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", middleName='" + middleName + '\'' +
+                ", dateOfBirth=" + dateOfBirth +
+                ", pSerial='" + pSerial + '\'' +
+                ", pNumber='" + pNumber + '\'' +
+                ", dateOfIssue=" + dateOfIssue +
+                '}';
+    }
 
     public String getFirstName() {
         return firstName;

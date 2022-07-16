@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -25,6 +26,7 @@ public class CorpService {
     @Autowired
     private CorpDAO corpDAO;
 
+    @Transactional // Обеспечивает получение паспорта при ленивом вытаскивании
     public List<IndividualResponse> getIndividualsInfo(IndividualRequest request){
 
         List<IndividualResponse> responses = new ArrayList<>();
@@ -55,9 +57,9 @@ public class CorpService {
             ir.setpNumber(i.getPassports().get(0).getpNumber());
             ir.setDateOfIssue(i.getPassports().get(0).getDateOfIssue());
 
-//            LOGGER.info(" ======== PASSPORT ======= " + i.getPassports().get(0).getpSerial() + ' '
-//                    + i.getPassports().get(0).getpNumber() + ' '
-//                    + i.getPassports().get(0).getDateOfIssue());
+            LOGGER.info(" ======== PASSPORT ======= " + i.getPassports().get(0).getpSerial() + ' '
+                    + i.getPassports().get(0).getpNumber() + ' '
+                    + i.getPassports().get(0).getDateOfIssue());
 
             responses.add(ir);
 

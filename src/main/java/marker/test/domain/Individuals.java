@@ -23,7 +23,7 @@ public class Individuals {
     private String middleName;
     @Column(name = "dateOfBirth")
     private LocalDate dateOfBirth;
-    @OneToMany(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER, mappedBy = "individual")
+    @OneToMany(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY, mappedBy = "individual")
     private List<Passports> passports;
 
 

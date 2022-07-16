@@ -19,7 +19,7 @@ public class Passports {
     private String pNumber;
     @Column(name = "dateOfIssue")
     private LocalDate dateOfIssue;
-    @ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
+    @ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
     @JoinColumn (name = "individualId")
     private Individuals individual;
 

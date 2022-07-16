@@ -13,6 +13,16 @@ public class IndividualRequest {
     @XmlJavaTypeAdapter(LocalDateAdapter.class)
     private LocalDate dateOfBirth;
 
+    @Override
+    public String toString() {
+        return "IndividualRequest{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", middleName='" + middleName + '\'' +
+                ", dateOfBirth=" + dateOfBirth +
+                '}';
+    }
+
     public String getFirstName() {
         return firstName;
     }

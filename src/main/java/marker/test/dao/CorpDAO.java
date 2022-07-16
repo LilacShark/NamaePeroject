@@ -33,10 +33,11 @@ public interface CorpDAO extends JpaRepository<Individuals, Long> {
                                      @Param("dateOfBirth") LocalDate dateOfBirth);
 
 
-    @Query("SELECT i FROM Individuals i JOIN i.passports WHERE i.lastName = :lastName AND " +
+    @Query("SELECT i FROM Individuals i JOIN i.passports p WHERE i.lastName = :lastName AND " +
             "i.firstName = :firstName AND " +
             "i.middleName = :middleName AND " +
-            "i.dateOfBirth = :dateOfBirth")
+            "i.dateOfBirth = :dateOfBirth AND " +
+            "p.dateOfIssue > CURRENT_DATE")
     List<Individuals> findIndividualsWithPassports(@Param("lastName") String lastName,
                                       @Param("firstName") String firstName,
                                       @Param("middleName") String middleName,
