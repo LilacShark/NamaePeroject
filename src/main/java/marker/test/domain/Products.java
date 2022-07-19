@@ -4,10 +4,10 @@ import javax.persistence.*;
 import java.time.LocalDate;
 
 
-@Table(name="products")
+//@Table(name="products")
+@Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name="productType",
-        discriminatorType = DiscriminatorType.INTEGER)
+//@DiscriminatorColumn(name="productType", discriminatorType = DiscriminatorType.INTEGER)
 public class Products {
 
     @Id
